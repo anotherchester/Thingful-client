@@ -1,4 +1,4 @@
-# Thingful Client
+# Thingful Client (collaboration of Michael Ploughman & Oleg Cherniaev)
 
 ## Setting Up
 
