@@ -4,7 +4,7 @@ import AuthApiService from '../../services/auth-api-service'
 
 export default class RegistrationForm extends Component {
   static defaultProps = {
-    onRegistrationSuccess: () => {}
+    onRegistrationSuccess: () => { }
   }
 
   state = { error: null }
@@ -13,23 +13,23 @@ export default class RegistrationForm extends Component {
     ev.preventDefault()
     const { full_name, nickname, user_name, password } = ev.target
 
-    this.setState({error: null})
-    AuthApiService.postUser ({
+    this.setState({ error: null })
+    AuthApiService.postUser({
       user_name: user_name.value,
       password: password.value,
       full_name: full_name.value,
       nickname: nickname.value
     })
-    .then(user => {
-    full_name.value = ''
-    nickname.value = ''
-    user_name.value = ''
-    password.value = ''
-    this.props.onRegistrationSuccess()
-  })
-    .catch(res => {
-      this.setState({error: res.error})
-    })
+      .then(user => {
+        full_name.value = ''
+        nickname.value = ''
+        user_name.value = ''
+        password.value = ''
+        this.props.onRegistrationSuccess()
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
   }
   render() {
     const { error } = this.state
